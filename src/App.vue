@@ -1,15 +1,18 @@
 <template>
     <div class="alpaca">
-        <alertExample></alertExample>
+        <alert-example></alert-example>
+        <button-example></button-example>
     </div>
 </template>
 
 <script>
 import alertExample from './example/alert.vue';
+import buttonExample from './example/button.vue';
 export default {
     name: 'app',
     components: {
-    	alertExample
+    	alertExample,
+    	buttonExample
     }
 }
 </script>

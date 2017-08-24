@@ -1,7 +1,10 @@
 <template>
-	<span :class="classes" @click="handler">
-		<slot></slot>
-	</span>	
+	<a href="javascript:;" :class="classes" :style="getWidth" @click="handler">
+		<img v-if="loading" src="static/images/loading.gif">
+		<span>
+			<slot></slot>
+		</span>
+	</a>	
 </template>
 
 <script>
@@ -13,19 +16,31 @@
 				default:'default',
 				required:false,
 				validator (value) {
-					return oneOf(value, ['default', 'primary', 'success', 'warning', 'error']);
+					return oneOf(value, ['default', 'primary', 'success', 'warning', 'error','disabled']);
 				}
+			},
+			width:{
+				type:String,
+				required:false,
+				default:'100%'
+			},
+			loading:{
+				type:Boolean,
+				default:false
 			}
 		},
 		computed:{
 			classes(){
 				let type = this.$props.type;
 				return 'x-button x-button-' +type; 
+			},
+			getWidth(){
+				return {width: this.$props.width}
 			}
 		},
 		methods:{
 			handler(){
-				this.$emit('click')
+				if(this.$props.type !== 'disabled') this.$emit('click');
 			}
 		}
 	}

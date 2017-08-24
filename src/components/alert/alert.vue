@@ -4,7 +4,7 @@
 			<div class="x-alert-wrap" :style="getWidth">
 				<div class="x-message">
 					<div>
-						<p v-if="showHead" class="x-p1">提示</p>
+						<p v-if="showHead" class="x-p1">{{title}}</p>
 						<slot v-else name="header"></slot>
 					</div>
 					<div class="x-alert-content">
@@ -12,11 +12,11 @@
 					</div>
 					<div v-if="showFoot">
 						<div v-if="isCancelable" class="x-buttons">
-							<a href="javascript:;" @click="cancel(false)" class="x-bor">取消</a>
-							<a href="javascript:;" @click="cancel(true)">确定</a>
+							<a href="javascript:;" @click="cancelHandle(false)" class="x-bor">{{cancel}}</a>
+							<a href="javascript:;" @click="cancelHandle(true)">{{confirm}}</a>
 						</div>
 						<div v-else>
-							<a href="javascript:;" @click="hide">确定</a>
+							<a href="javascript:;" @click="hide">{{confirm}}</a>
 						</div>
 					</div>
 					<slot v-else name="footer"></slot>
@@ -40,6 +40,21 @@
 			width:{
 				type:[String,Number],
 				default:'60%'
+			},
+			title:{
+				type:String,
+				default:'提示',
+				required:false
+			},
+			confirm:{
+				type:String,
+				default:'确定',
+				required:false
+			},
+			cancel:{
+				type:String,
+				default:'取消',
+				required:false
 			}
 		},
 		data(){
@@ -54,7 +69,7 @@
 				this.$emit('input',false);
 				this.$emit('confirm');
 			},
-			cancel(bool){
+			cancelHandle(bool){
 				this.$emit('input',false);
 				if(bool) this.$emit('confirm');
 				else this.$emit('cancel');

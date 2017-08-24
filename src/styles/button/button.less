@@ -1,12 +1,20 @@
 .x-button {
-	display: inline-block;
+	display: block;
 	min-width: 60px;
 	margin: 0 auto;
-	padding: 8px 10px;
+	height: 35px;
+	line-height: 35px;
 	text-align: center;
-	font-size: 12px;
+	font-size: 14px;
 	border-radius: 5px;
 	cursor: pointer;
+	text-decoration: none;
+	overflow: hidden;
+	img{
+		width: 14px;
+		vertical-align: sub;
+	}
+
 }
 .type(@borderColor, @bgc, @color){
 	border: 1px solid @borderColor;
@@ -28,4 +36,7 @@
 }
 .x-button-error {
 	.type(#f30,#f30,#fff);
+}
+.x-button-disabled {
+	.type(rgba(0, 0, 0, 0.2),#fff,rgba(0, 0, 0, 0.2));
 }
