@@ -1,0 +1,38 @@
+.x-slip {
+	position: fixed;
+	top:0;
+	right: 0;
+	bottom: 0;
+	left:0;
+	background: rgba(0,0,0,.6);
+	z-index: 6666;
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	.x-slip-left, .x-slip-right{
+		position: absolute;
+		top:0;
+		width: 40%;
+		height: 100%;
+		background: #fff;
+		z-index: 5;
+		transition: all .3s ease;
+		-webkit-transition: all .3s ease;
+	}
+	.x-slip-left{
+		left:0;
+	}
+	.x-slip-right{
+		right: 0;
+	}
+}
+.fade-enter, .fade-leave-active {
+  	background: rgba(0,0,0,0)
+}
+.fade-enter .x-slip-left, .fade-leave-active .x-slip-left{
+  	-webkit-transform: translateX(-100%);
+  	transform: translateX(-100%);
+}
+.fade-enter .x-slip-right, .fade-leave-active .x-slip-right{
+  	-webkit-transform: translateX(100%);
+  	transform: translateX(100%);
+}

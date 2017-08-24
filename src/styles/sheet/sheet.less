@@ -1,0 +1,41 @@
+.x-sheet{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right:0;
+	bottom:0;
+	z-index: 1000;
+	background: rgba(0,0,0,.6);
+	transition: all .3s ease;
+	.x-sheet-bottom{
+		position: absolute;
+		left:0;
+		bottom: 0;
+		width: 100%;
+		padding: 10px;
+		box-sizing: border-box;
+		background: #fff;
+		transition: all .3s ease-in-out;
+		p{
+			color: #999;
+			font-size: 14px;
+			text-align: left;
+		}
+		ul{
+			max-height:120px;
+			overflow-y: auto; 
+		}
+		ul li{
+			font-size: 15px;
+			text-align: left;
+			padding: 2px 0;
+		}
+	}
+}
+.fade-enter, .fade-leave-active {
+  	background: rgba(0,0,0,0)
+}
+.fade-enter .x-sheet-bottom, .fade-leave-active .x-sheet-bottom{
+  	-webkit-transform: translateY(200px);
+  	transform: translateY(200px);
+}

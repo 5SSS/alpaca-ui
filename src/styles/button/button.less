@@ -1,0 +1,31 @@
+.x-button {
+	display: inline-block;
+	min-width: 60px;
+	margin: 0 auto;
+	padding: 8px 10px;
+	text-align: center;
+	font-size: 12px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.type(@borderColor, @bgc, @color){
+	border: 1px solid @borderColor;
+	background: @bgc;
+	color:@color
+}
+
+.x-button-default {
+	.type(#42b983,#fff,#42b983);
+}
+.x-button-primary {
+	.type(#2db7f5,#2db7f5,#fff);
+}
+.x-button-success {
+	.type(#0c6,#0c6,#fff);
+}
+.x-button-warning {
+	.type(#f90,#f90,#fff);
+}
+.x-button-error {
+	.type(#f30,#f30,#fff);
+}
